@@ -1,6 +1,6 @@
 {
   "name": "wms-downloader-mngr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Download manager for wms-downloader.",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,6 @@
   "dependencies": {
     "jsonfile": "^2.2.3",
     "rmdir": "^1.2.0",
-    "wms-downloader": "^0.1.1"
+    "wms-downloader": "^0.1.x"
   }
 }

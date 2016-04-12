@@ -2,6 +2,11 @@ var jsonfile = require('jsonfile');
 var fs = require('fs');
 var rmdir = require('rmdir');
 var downloader = require('wms-downloader');
+//var downloader = require('../wms-downloader/index.js');
+
+
+const
+exec = require('child_process').exec;
 
 /**
  * Default init options
@@ -30,12 +35,12 @@ var taskCache = {
  */
 downloader.init(initOptions);
 
-setInterval(function() {
-	getTasks(function(err, tasks) {
-		console.log(tasks);
-
-	});
-}, 5000);
+//setInterval(function() {
+//	getTasks(function(err, tasks) {
+//		console.log(tasks);
+//
+//	});
+//}, 5000);
 
 /**
  * Adds a download task.
@@ -46,9 +51,6 @@ setInterval(function() {
  *          callback function(err){}
  */
 function addTask(options, callback) {
-
-	// Override the task workspace, with the workspace of wms-downloader-mngr
-	options.task.workspace = initOptions.mngr.workspace + '/tiles';
 
 	createDir(initOptions.mngr.workspace, function(err) {
 
@@ -83,7 +85,8 @@ function addTask(options, callback) {
 							"dateOfApplication" : (new Date()).toISOString(),
 							"dateOfProcess" : "",
 							"dateOfCompletion" : "",
-							"errorMessage" : ""
+							"errorMessage" : "",
+							"zip": false
 						};
 
 						// Write index.json
@@ -158,7 +161,7 @@ function getTasks(callback) {
 	}
 
 	if (updateCache) {
-		console.log('Update cache');
+		
 		fs.readdir(initOptions.mngr.workspace, function(err, items) {
 
 			if (err) {
@@ -416,11 +419,46 @@ function startDownload(task, callback) {
 							"key" : "errorMessage",
 							"value" : errorMessage
 						} ], function(err) {
-							callback(err);
+							if (err) {
+								callback(err);
+							} else {
+								zipTask(objTask.task.id, function(err) {
+									if (err) {
+										callback(err);
+									} else {
+										updateJSONfile(task.indexFile, [ {
+											"key" : "zip",
+											"value" : true
+										} ], function(err) {
+											callback(err);
+										});
+									}
+								});
+							}
 						});
 					});
 				}
 			});
+		}
+	});
+}
+
+function zipTask(id, callback) {
+
+	var pathOfTiles = initOptions.mngr.workspace + '/' + id + '/tiles/' + id;
+	var zipFile = initOptions.mngr.workspace + '/' + id + '/tiles.zip';
+	var command = '7z a -mx0 -tzip ' + '"' + zipFile + '" "' + pathOfTiles + '/*"';
+
+	// Zip tiles
+	var child = exec(command, function(err, stdout, stderr) {
+		if (err) {
+			callback(new Error(stderr));
+		} else {
+			// Remove tiles dir
+			rmdir(initOptions.mngr.workspace + '/' + id + '/tiles', function(err, dirs, files) {
+				callback(err);
+			});
+
 		}
 	});
 

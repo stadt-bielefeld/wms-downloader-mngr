@@ -32,7 +32,7 @@ mngr.init(initOptions);
 var task1 = {
 	"task" : {
 		"id" : "id_of_task1",
-		"title" : "Stadtbezirke 1:2500 72DPI",
+		"title" : "Stadtbezirke 1:15000 96DPI",
 		"format" : "image/png",
 		"area" : {
 			"bbox" : {
@@ -76,7 +76,7 @@ var task1 = {
 var task2 = {
 	"task" : {
 		"id" : "id_of_task2",
-		"title" : "Bebauungsplanübersicht 1:2500 72DPI",
+		"title" : "Bebauungsplanübersicht 1:25000 96DPI",
 		"format" : "image/png",
 		"area" : {
 			"bbox" : {
@@ -88,7 +88,7 @@ var task2 = {
 		}
 	},
 	"tiles" : {
-		"maxSizePx" : 25000,
+		"maxSizePx" : 2500,
 		"gutterPx" : 250,
 		"resolutions" : [ {
 			"id" : "25000",
