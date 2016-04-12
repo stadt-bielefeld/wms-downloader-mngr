@@ -2,8 +2,7 @@ var jsonfile = require('jsonfile');
 var fs = require('fs');
 var rmdir = require('rmdir');
 var downloader = require('wms-downloader');
-//var downloader = require('../wms-downloader/index.js');
-
+// var downloader = require('../wms-downloader/index.js');
 
 const
 exec = require('child_process').exec;
@@ -35,12 +34,12 @@ var taskCache = {
  */
 downloader.init(initOptions);
 
-//setInterval(function() {
-//	getTasks(function(err, tasks) {
-//		console.log(tasks);
+// setInterval(function() {
+// getTasks(function(err, tasks) {
+// console.log(tasks);
 //
-//	});
-//}, 5000);
+// });
+// }, 5000);
 
 /**
  * Adds a download task.
@@ -86,7 +85,7 @@ function addTask(options, callback) {
 							"dateOfProcess" : "",
 							"dateOfCompletion" : "",
 							"errorMessage" : "",
-							"zip": false
+							"zip" : false
 						};
 
 						// Write index.json
@@ -161,7 +160,7 @@ function getTasks(callback) {
 	}
 
 	if (updateCache) {
-		
+
 		fs.readdir(initOptions.mngr.workspace, function(err, items) {
 
 			if (err) {
@@ -196,6 +195,7 @@ function getTaskIndexJson(items, index, tasksArray, callback) {
 		// Path of task index.json
 		var indexFile = initOptions.mngr.workspace + '/' + items[index] + '/index.json';
 		var taskFile = initOptions.mngr.workspace + '/' + items[index] + '/task.json';
+		var zipFile = initOptions.mngr.workspace + '/' + items[index] + '/tiles.zip';
 
 		// Load task index.json
 		jsonfile.readFile(indexFile, function(err, obj) {
@@ -235,9 +235,16 @@ function getTaskIndexJson(items, index, tasksArray, callback) {
 				}
 
 				if (!skipTask) {
-					// Add paths of files
-					obj.indexFile = indexFile;
-					obj.taskFile = taskFile;
+
+				
+						// Add paths of files
+						obj.indexFile = indexFile;
+						obj.taskFile = taskFile;
+
+						if (obj.zip) {
+							obj.zipFile = zipFile;
+						}
+					
 
 					// Get progress
 					if (obj.dateOfProcess) {
@@ -280,6 +287,7 @@ function observeTasks() {
 
 		// Determine all tasks
 		getTasks(function(err, tasks) {
+		
 
 			if (err) {
 				// TODO
