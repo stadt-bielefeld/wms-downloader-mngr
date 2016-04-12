@@ -1,42 +1,8 @@
-# wms-downloader-mngr
-
-## Installation
-
-### 01 NodeJS and NPM
-
-Windows: 
-Use the installer from https://nodejs.org/
-
-Ubuntu / Debian:
-```sh
-sudo apt-get install nodejs npm
-```
-
-### 02 GraphicsMagick
-
-Windows: 
-Use the installer from http://www.graphicsmagick.org/
-
-Ubuntu / Debian:
-```sh
-sudo apt-get install graphicsmagick
-```
-
-
-### 03 wms-downloader-mngr
-Use terminal:
-```sh
-npm install wms-downloader-mngr
-```
-
-
-## Get started
-
-### Example
-
-#### Without proxy
-```js
-var mngr = require('wms-download-mngr');
+/*
+ * Load the wms-downloader-mngr module
+ */
+var mngr = require(__dirname + '/../index.js');
+// var mngr = require('wms-download-mngr');
 
 /*
  * Init options for wms-downloader-mngr
@@ -237,18 +203,3 @@ setTimeout(function() {
 		}
 	});
 }, 19000);
-```
-
-
-## Supported formats
-
-  - image/png
-  - image/jpeg
-  - image/gif
-  - image/tiff
-
-
-License
-----
-
-MIT
