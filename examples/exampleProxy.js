@@ -17,7 +17,15 @@ var initOptions = {
 	"request" : {
 		"userAgent" : "wms-downloader",
 		"timeout" : 30000,
-		"proxy" : null
+		"proxy" : {
+			"http" : {
+				"host" : "10.208.20.71",
+				"port" : 4239,
+				"user" : "NameOfUser",
+				"password" : "PasswordOfUser",
+				"exclude" : [ "http://12.101.20.18/", "http://12.208.28.48/" ]
+			}
+		}
 	}
 }
 

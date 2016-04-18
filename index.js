@@ -2,7 +2,7 @@ var jsonfile = require('jsonfile');
 var fs = require('fs');
 var rmdir = require('rmdir');
 var downloader = require('wms-downloader');
-// var downloader = require('../wms-downloader/index.js');
+//var downloader = require('../wms-downloader/index.js');
 
 const
 exec = require('child_process').exec;
@@ -19,8 +19,7 @@ var initOptions = {
 	},
 	"request" : {
 		"userAgent" : "wms-downloader",
-		"timeout" : 30000,
-		"proxy" : null
+		"timeout" : 30000
 	}
 };
 

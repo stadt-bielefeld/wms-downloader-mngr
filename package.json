@@ -27,6 +27,6 @@
   "dependencies": {
     "jsonfile": "^2.2.3",
     "rmdir": "^1.2.0",
-    "wms-downloader": "^0.1.x"
+    "wms-downloader": "^0.2.x"
   }
 }

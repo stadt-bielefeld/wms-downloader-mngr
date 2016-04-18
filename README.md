@@ -47,7 +47,7 @@ npm install wms-downloader-mngr
 ### Example
 
 
-#### Without proxy
+#### Download
 ```js
 var mngr = require('wms-download-mngr');
 
@@ -63,8 +63,7 @@ var initOptions = {
 	},
 	"request" : {
 		"userAgent" : "wms-downloader",
-		"timeout" : 30000,
-		"proxy" : null
+		"timeout" : 30000
 	}
 }
 
@@ -252,7 +251,7 @@ setTimeout(function() {
 }, 19000);
 ```
 
-#### With proxy
+#### Download with proxy
 ```js
 var mngr = require('wms-download-mngr');
 
