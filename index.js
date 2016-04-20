@@ -2,7 +2,7 @@ var jsonfile = require('jsonfile');
 var fs = require('fs');
 var rmdir = require('rmdir');
 var downloader = require('wms-downloader');
-//var downloader = require('../wms-downloader/index.js');
+// var downloader = require('../wms-downloader/index.js');
 
 const
 exec = require('child_process').exec;
@@ -235,15 +235,13 @@ function getTaskIndexJson(items, index, tasksArray, callback) {
 
 				if (!skipTask) {
 
-				
-						// Add paths of files
-						obj.indexFile = indexFile;
-						obj.taskFile = taskFile;
+					// Add paths of files
+					obj.indexFile = indexFile;
+					obj.taskFile = taskFile;
 
-						if (obj.zip) {
-							obj.zipFile = zipFile;
-						}
-					
+					if (obj.zip) {
+						obj.zipFile = zipFile;
+					}
 
 					// Get progress
 					if (obj.dateOfProcess) {
@@ -286,7 +284,6 @@ function observeTasks() {
 
 		// Determine all tasks
 		getTasks(function(err, tasks) {
-		
 
 			if (err) {
 				// TODO
@@ -477,5 +474,6 @@ module.exports = {
 	addTask : addTask,
 	removeTask : removeTask,
 	getTasks : getTasks,
-	init : init
+	init : init,
+	getRequestObject : downloader.getRequestObject
 }
