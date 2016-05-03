@@ -468,6 +468,15 @@ function zipTask(id, callback) {
 
 }
 
+/**
+ * Returns the config options of the wms-downloader.
+ * 
+ * @returns {object} Config options of the wms-downloader
+ */
+function getConfig() {
+	return initOptions;
+}
+
 observeTasks();
 
 module.exports = {
@@ -475,5 +484,6 @@ module.exports = {
 	removeTask : removeTask,
 	getTasks : getTasks,
 	init : init,
-	getRequestObject : downloader.getRequestObject
+	getRequestObject : downloader.getRequestObject,
+	getConfig : getConfig
 }
