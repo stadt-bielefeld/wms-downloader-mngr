@@ -28,10 +28,7 @@ var taskCache = {
 	"tasks" : {}
 }
 
-/**
- * Init wms-downloader
- */
-downloader.init(initOptions);
+
 
 // setInterval(function() {
 // getTasks(function(err, tasks) {
@@ -276,6 +273,10 @@ function init(options) {
 	if (options) {
 		initOptions = options;
 	}
+	/**
+	 * Init wms-downloader
+	 */
+	downloader.init(initOptions);
 }
 
 function observeTasks() {
