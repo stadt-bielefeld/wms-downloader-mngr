@@ -4,8 +4,8 @@
 
 ### 01 NodeJS and NPM
 
-Windows: 
-Use the installer from https://nodejs.org/
+Windows:
+Use the installer from <https://nodejs.org/>
 
 Ubuntu / Debian:
 ```sh
@@ -14,8 +14,8 @@ sudo apt-get install nodejs npm
 
 ### 02 GraphicsMagick
 
-Windows: 
-Use the installer from http://www.graphicsmagick.org/
+Windows:
+Use the installer from <http://www.graphicsmagick.org/>
 
 Ubuntu / Debian:
 ```sh
@@ -24,8 +24,8 @@ sudo apt-get install graphicsmagick
 
 ### 03 7-Zip
 
-Windows: 
-Use the installer from http://www.7-zip.org/
+Windows:
+Use the installer from <http://www.7-zip.org/>
 
 Subsequent register the path of the "7z.exe" ("C:\Program Files\7-Zip" or "C:\Program Files (x86)\7-Zip") into the "PATH" environment variable.
 
@@ -57,6 +57,7 @@ var mngr = require('wms-download-mngr');
 var initOptions = {
 	"mngr" : {
 		"workspace" : __dirname + "/example1_workspace",
+		"logs": __dirname + "/example.log",
 		"maxOfSimultaneousTasks" : 1,
 		"deletionTimeoutOfCompletedTasks" : 600000,
 		"taskCacheExpiration" : 10000
@@ -261,6 +262,7 @@ var mngr = require('wms-download-mngr');
 var initOptions = {
 	"mngr" : {
 		"workspace" : __dirname + "/example1_workspace",
+		"logs": __dirname + "/example.log",
 		"maxOfSimultaneousTasks" : 1,
 		"deletionTimeoutOfCompletedTasks" : 600000,
 		"taskCacheExpiration" : 10000
@@ -472,7 +474,6 @@ setTimeout(function() {
   - image/tiff
 
 
-License
-----
+## License
 
 MIT

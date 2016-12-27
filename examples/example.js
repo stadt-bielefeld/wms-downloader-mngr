@@ -10,6 +10,7 @@ var mngr = require(__dirname + '/../index.js');
 var initOptions = {
 	"mngr" : {
 		"workspace" : __dirname + "/example1_workspace",
+		"logs": __dirname + "/example.log",
 		"maxOfSimultaneousTasks" : 1,
 		"deletionTimeoutOfCompletedTasks" : 600000,
 		"taskCacheExpiration" : 10000
@@ -18,7 +19,7 @@ var initOptions = {
 		"userAgent" : "wms-downloader",
 		"timeout" : 30000
 	}
-}
+};
 
 /*
  * Init the wms-downloader-mngr

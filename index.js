@@ -2,6 +2,7 @@ var jsonfile = require('jsonfile');
 var fs = require('fs');
 var rmdir = require('rmdir');
 var downloader = require('wms-downloader');
+var winston = require('winston');
 // var downloader = require('../wms-downloader/index.js');
 
 const
@@ -13,6 +14,7 @@ exec = require('child_process').exec;
 var initOptions = {
 	"mngr" : {
 		"workspace" : __dirname + "/tasks",
+		"logs" : __dirname + "/logs/addedTasks.log",
 		"maxOfSimultaneousTasks" : 10,
 		"deletionTimeoutOfCompletedTasks" : 600000,
 		"taskCacheExpiration" : 10000
@@ -26,8 +28,12 @@ var initOptions = {
 var taskCache = {
 	"lastUpdate" : null,
 	"tasks" : {}
-}
+};
 
+
+function log(task){
+	winston.info('Task was added.',task);
+}
 
 
 // setInterval(function() {
@@ -39,13 +45,15 @@ var taskCache = {
 
 /**
  * Adds a download task.
- * 
+ *
  * @param {object}
  *          options
  * @param {function}
  *          callback function(err){}
  */
 function addTask(options, callback) {
+
+	log(options);
 
 	createDir(initOptions.mngr.workspace, function(err) {
 
@@ -106,7 +114,7 @@ function addTask(options, callback) {
 
 /**
  * Removes a download task.
- * 
+ *
  * @param {object}
  *          options
  * @param {function}
@@ -138,7 +146,7 @@ function removeTask(id, callback) {
 
 /**
  * Returns all tasks
- * 
+ *
  * @param {function}
  *          callback function(err, tasks){}
  */
@@ -177,7 +185,7 @@ function getTasks(callback) {
 
 /**
  * Reads task files recusive.
- * 
+ *
  * @param items
  * @param index
  * @param tasksArray
@@ -265,7 +273,7 @@ function getTaskIndexJson(items, index, tasksArray, callback) {
 
 /**
  * It inits the wms-downloader-mngr.
- * 
+ *
  * @param options
  *          {object}
  */
@@ -273,6 +281,10 @@ function init(options) {
 	if (options) {
 		initOptions = options;
 	}
+
+	winston.add(winston.transports.File, { filename: initOptions.mngr.logs });
+	winston.remove(winston.transports.Console);
+
 	/**
 	 * Init wms-downloader
 	 */
@@ -293,11 +305,11 @@ function observeTasks() {
 				var countOfRunningTasks = 0;
 
 				// Iterate over all tasks
-				for ( var id in tasks) {
-					var task = tasks[id];
+				for ( var id2 in tasks) {
+					var task2 = tasks[id2];
 
 					// Count not running tasks
-					if ((task.dateOfProcess) && !(task.dateOfCompletion)) {
+					if ((task2.dateOfProcess) && !(task2.dateOfCompletion)) {
 						countOfRunningTasks++;
 					}
 				}
@@ -312,6 +324,7 @@ function observeTasks() {
 								countOfRunningTasks++;
 
 								startDownload(task, function(err) {
+
 									if (err) {
 										// TODO
 									}
@@ -366,7 +379,7 @@ function updateJSONfile(file, values, callback) {
 
 /**
  * Creates a new directory, if it does not exist.
- * 
+ *
  * @param {string}
  *          path Path of new directory
  * @param {function}
@@ -471,7 +484,7 @@ function zipTask(id, callback) {
 
 /**
  * Returns the config options of the wms-downloader.
- * 
+ *
  * @returns {object} Config options of the wms-downloader
  */
 function getConfig() {
@@ -487,4 +500,4 @@ module.exports = {
 	init : init,
 	getRequestObject : downloader.getRequestObject,
 	getConfig : getConfig
-}
+};
