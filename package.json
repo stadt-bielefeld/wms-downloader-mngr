@@ -26,6 +26,6 @@
     "jsonfile": "^6.0.1",
     "rmdir": "^1.2.0",
     "winston": "^3.2.1",
-    "wms-downloader": "^1.1.2"
+    "wms-downloader": "^1.1.3"
   }
 }

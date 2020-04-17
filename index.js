@@ -494,6 +494,6 @@ module.exports = {
   removeTask: removeTask,
   getTasks: getTasks,
   init: init,
-  // getRequestObject: downloader.getRequestObject,
+  getRequestObject: downloader.getRequestObject,
   getConfig: getConfig
 };
