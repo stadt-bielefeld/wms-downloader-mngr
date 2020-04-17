@@ -9,6 +9,7 @@ let logger;
 
 const WMSDownloader = require('wms-downloader');
 let downloader;
+let getRequestObject;
 
 /**
  * Default init options
@@ -47,6 +48,7 @@ function init(options) {
   });
 
   downloader = new WMSDownloader(initOptions);
+  getRequestObject = downloader.getRequestObject;
 }
 
 const taskCache = {
@@ -494,6 +496,6 @@ module.exports = {
   removeTask: removeTask,
   getTasks: getTasks,
   init: init,
-  getRequestObject: downloader.getRequestObject,
+  getRequestObject: getRequestObject,
   getConfig: getConfig
 };
