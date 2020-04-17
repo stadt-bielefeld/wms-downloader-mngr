@@ -1,11 +1,9 @@
 {
   "name": "wms-downloader-mngr",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "Download manager for wms-downloader.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stadt-bielefeld/wms-downloader-mngr.git"
@@ -18,16 +16,16 @@
     "ogc",
     "manager"
   ],
-  "author": "Jens Pabel <jens.pabel@bielefeld.de>",
+  "author": "Jens Brokfeld <jens.brokfeld@bielefeld.de>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/stadt-bielefeld/wms-downloader-mngr/issues"
   },
   "homepage": "https://github.com/stadt-bielefeld/wms-downloader-mngr#readme",
   "dependencies": {
-    "jsonfile": "^2.2.3",
+    "jsonfile": "^6.0.1",
     "rmdir": "^1.2.0",
-    "winston": "^2.3.0",
-    "wms-downloader": "^0.2.x"
+    "winston": "^3.2.1",
+    "wms-downloader": "^1.1.2"
   }
 }
