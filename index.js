@@ -9,7 +9,9 @@ let logger;
 
 const WMSDownloader = require('wms-downloader');
 let downloader;
-let getRequestObject;
+let getRequestObject = (url)=>{
+  return downloader.getRequestObject(url);
+};
 
 /**
  * Default init options
@@ -48,7 +50,7 @@ function init(options) {
   });
 
   downloader = new WMSDownloader(initOptions);
-  getRequestObject = downloader.getRequestObject;
+
 }
 
 const taskCache = {
