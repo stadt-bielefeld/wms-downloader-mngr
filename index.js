@@ -230,7 +230,7 @@ function getTaskIndexJson(items, index, tasksArray, callback) {
       } else {
         // No Error
 
-        const skipTask = false;
+        let skipTask = false;
 
         if (obj.dateOfCompletion) {
 
