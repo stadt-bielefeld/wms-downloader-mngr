@@ -97,14 +97,14 @@ const task2 = {
     }]
   },
   "wms": [{
-    "id": "wms_bplan_uebersicht",
+    "id": "wms_bielefeld_karte",
     "getmap": {
-      "url": "http://www.bielefeld01.de/geodaten/geo_dienste/wms.php?url=bplan_wms_uebersicht_641&",
+      "url": "http://www.bielefeld01.de/md/WMS/bielefeld_karte_farbe/02?",
       "kvp": {
         "SERVICE": "WMS",
         "REQUEST": "GetMap",
         "VERSION": "1.3.0",
-        "LAYERS": "bebauungsplanuebersicht_wms",
+        "LAYERS": "map",
         "STYLES": "",
         "CRS": "EPSG:25832",
         "FORMAT": "image/png",
@@ -141,14 +141,14 @@ const task3 = {
     }]
   },
   "wms": [{
-    "id": "wms_bplan_uebersicht",
+    "id": "wms_bielefeld_karte_grau",
     "getmap": {
-      "url": "http://www.bielefeld01.de/geodaten/geo_dienste/wms.php?url=bplan_wms_uebersicht_641&",
+      "url": "https://www.bielefeld01.de/md/WMS/bielefeld_karte_grau/02?",
       "kvp": {
         "SERVICE": "WMS",
         "REQUEST": "GetMap",
         "VERSION": "1.3.0",
-        "LAYERS": "bebauungsplanuebersicht_wms",
+        "LAYERS": "map",
         "STYLES": "",
         "CRS": "EPSG:25832",
         "FORMAT": "image/png",

@@ -339,88 +339,88 @@ const task1 = {
  * Task 2 for wms-downloader-mngr
  */
 const task2 = {
-  "task" : {
-    "id" : "id_of_task2",
-    "title" : "Bebauungsplanübersicht 1:25000 96DPI",
-    "format" : "image/png",
-    "area" : {
-      "bbox" : {
-        "xmin" : 455000,
-        "ymin" : 5750000,
-        "xmax" : 479000,
-        "ymax" : 5774000
+  "task": {
+    "id": "id_of_task2",
+    "title": "Bebauungsplanübersicht 1:25000 96DPI",
+    "format": "image/png",
+    "area": {
+      "bbox": {
+        "xmin": 455000,
+        "ymin": 5750000,
+        "xmax": 479000,
+        "ymax": 5774000
       }
     }
   },
-  "tiles" : {
-    "maxSizePx" : 2500,
-    "gutterPx" : 250,
-    "resolutions" : [ {
-      "id" : "25000",
-      "scale" : 25000,
-      "dpi" : 96
-    } ]
+  "tiles": {
+    "maxSizePx": 2500,
+    "gutterPx": 250,
+    "resolutions": [{
+      "id": "25000",
+      "scale": 25000,
+      "dpi": 96
+    }]
   },
-  "wms" : [ {
-    "id" : "wms_bplan_uebersicht",
-    "getmap" : {
-      "url" : "http://www.bielefeld01.de/geodaten/geo_dienste/wms.php?url=bplan_wms_uebersicht_641&",
-      "kvp" : {
-        "SERVICE" : "WMS",
-        "REQUEST" : "GetMap",
-        "VERSION" : "1.3.0",
-        "LAYERS" : "bebauungsplanuebersicht_wms",
-        "STYLES" : "",
-        "CRS" : "EPSG:25832",
-        "FORMAT" : "image/png",
-        "TRANSPARENT" : "TRUE"
+  "wms": [{
+    "id": "wms_bielefeld_karte",
+    "getmap": {
+      "url": "http://www.bielefeld01.de/md/WMS/bielefeld_karte_farbe/02?",
+      "kvp": {
+        "SERVICE": "WMS",
+        "REQUEST": "GetMap",
+        "VERSION": "1.3.0",
+        "LAYERS": "map",
+        "STYLES": "",
+        "CRS": "EPSG:25832",
+        "FORMAT": "image/png",
+        "TRANSPARENT": "TRUE"
       }
     }
-  } ]
+  }]
 };
 
 /*
  * Task 3 for wms-downloader-mngr
  */
 const task3 = {
-  "task" : {
-    "id" : "id_of_task3",
-    "title" : "Bebauungsplanübersicht 1:2500 72DPI",
-    "format" : "image/png",
-    "area" : {
-      "bbox" : {
-        "xmin" : 455000,
-        "ymin" : 5750000,
-        "xmax" : 479000,
-        "ymax" : 5774000
+  "task": {
+    "id": "id_of_task3",
+    "title": "Bebauungsplanübersicht 1:2500 72DPI",
+    "format": "image/png",
+    "area": {
+      "bbox": {
+        "xmin": 455000,
+        "ymin": 5750000,
+        "xmax": 479000,
+        "ymax": 5774000
       }
     }
   },
-  "tiles" : {
-    "maxSizePx" : 25000,
-    "gutterPx" : 250,
-    "resolutions" : [ {
-      "id" : "25000",
-      "scale" : 25000,
-      "dpi" : 96
-    } ]
+  "tiles": {
+    "maxSizePx": 25000,
+    "gutterPx": 250,
+    "resolutions": [{
+      "id": "25000",
+      "scale": 25000,
+      "dpi": 96
+    }]
   },
-  "wms" : [ {
-    "id" : "wms_bplan_uebersicht",
-    "getmap" : {
-      "url" : "http://www.bielefeld01.de/geodaten/geo_dienste/wms.php?url=bplan_wms_uebersicht_641&",
-      "kvp" : {
-        "SERVICE" : "WMS",
-        "REQUEST" : "GetMap",
-        "VERSION" : "1.3.0",
-        "LAYERS" : "bebauungsplanuebersicht_wms",
-        "STYLES" : "",
-        "CRS" : "EPSG:25832",
-        "FORMAT" : "image/png",
-        "TRANSPARENT" : "TRUE"
+  "wms": [{
+    "id": "wms_bielefeld_karte_grau",
+    "getmap": {
+      "url": "https://www.bielefeld01.de/md/WMS/bielefeld_karte_grau/02?",
+      "kvp": {
+        "SERVICE": "WMS",
+        "REQUEST": "GetMap",
+        "VERSION": "1.3.0",
+        "LAYERS": "map",
+        "STYLES": "",
+        "CRS": "EPSG:25832",
+        "FORMAT": "image/png",
+        "TRANSPARENT": "TRUE"
       }
     }
-  } ]
+  }]
 };
 
 /*

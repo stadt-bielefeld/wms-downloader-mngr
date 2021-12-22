@@ -1,6 +1,6 @@
 {
   "name": "wms-downloader-mngr",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Download manager for wms-downloader.",
   "main": "index.js",
   "scripts": {},
@@ -23,9 +23,9 @@
   },
   "homepage": "https://github.com/stadt-bielefeld/wms-downloader-mngr#readme",
   "dependencies": {
-    "jsonfile": "^6.0.1",
+    "jsonfile": "^6.1.0",
     "rmdir": "^1.2.0",
     "winston": "^3.3.3",
-    "wms-downloader": "^1.1.7"
+    "wms-downloader": "^1.1.8"
   }
 }
